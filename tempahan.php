@@ -6,13 +6,13 @@ if(isset($_POST["submit"])) {
     if (tempah($_POST) > 0) {
         echo "
         <script>
-            alert('data berhasil ditempah!');
+            alert('gelanggan berjaya ditempah!');
             
         </script>";
     } else {
         echo "  
         <script>
-        alert('data gagal ditempah!');
+        alert('gelanggan gagal ditempah!');
         
     </script>";
     }
@@ -30,12 +30,10 @@ if(isset($_POST["submit"])) {
 <body>
 <h1>Tempahan</h1>
 
+<input type="text" name="nama" id="nama" hidden>
 <form action="" method="post">
     <ul>
-        <li>
-            <label for="nama">NAMA :</label>
-            <input type="text" name="nama" id="nama">
-        </li>
+            
         <li>
             <label for="gelanggang">GELANGGANG :</label>
             <input type="text" name="gelanggang" id="gelanggang">

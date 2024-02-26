@@ -41,13 +41,23 @@ function register($data)
 function tempah($data) {
     global $conn;
 
-    $nama = htmlspecialchars($data["nama"]);
+    // $nama = htmlspecialchars($data["nama"]);
     $gelanggang = htmlspecialchars($data["gelanggang"]);
     $tarikh = ($data["tarikh"]);
     $masa_mulai = ($data["masa_mulai"]);
     $masa_berakhir =($data["masa_berakhir"]);
 
-    $query = "INSERT INTO bookings VALUES ('','$nama', '$gelanggang', '$tarikh', '$masa_mulai', '$masa_berakhir')";
+    $query = "INSERT INTO bookings VALUES ('','', '$gelanggang', '$tarikh', '$masa_mulai', '$masa_berakhir')";
+
+    $result = mysqli_query($conn, "SELECT tarikh FROM bookings WHERE tarikh = '$tarikh'");
+    
+    if(mysqli_fetch_assoc($result) ) {
+        echo "<script>
+        alert ('tarikh ini sudah ditempah!')
+        </script>";
+
+        return false;
+    }
 
     mysqli_query($conn, $query);
 
