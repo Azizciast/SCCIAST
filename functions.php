@@ -1,6 +1,18 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "scciast");
 
+function query($query)
+{
+    global $conn;
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
 function register($data)
 {
     global $conn;
@@ -49,11 +61,11 @@ function tempah($data) {
 
     $query = "INSERT INTO bookings VALUES ('','', '$gelanggang', '$tarikh', '$masa_mulai', '$masa_berakhir')";
 
-    $result = mysqli_query($conn, "SELECT tarikh FROM bookings WHERE tarikh = '$tarikh'");
+    $result = mysqli_query($conn,"SELECT gelanggang,tarikh FROM bookings WHERE gelanggang = '$gelanggang' AND tarikh = '$tarikh'");
     
     if(mysqli_fetch_assoc($result) ) {
         echo "<script>
-        alert ('tarikh ini sudah ditempah!')
+        alert ('gelanggang ini sudah ditempah!')
         </script>";
 
         return false;
@@ -63,4 +75,12 @@ function tempah($data) {
 
     return mysqli_affected_rows($conn);
 
+}
+
+function padampelajar($conn, $id)
+{
+    // Delete the record from the database
+    mysqli_query($conn, "DELETE FROM bookings WHERE id = $id");
+
+    return mysqli_affected_rows($conn);
 }
