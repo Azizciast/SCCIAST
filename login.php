@@ -73,12 +73,7 @@ if (isset($_POST["login"])) {
         <!-- NAVIGATION BAR  -->
         <div class="container-navbar">
             <ul class="ul-navbar">
-                <li class="li-navbar">
-                    <a href="#" class="a-navbar">HOME</a>
-                </li>
-                <li class="li-navbar">
-                    <a href="#" class="a-navbar">ABOUT</a>
-                </li>
+           
                 <li class="li-navbar">
                     <a href="register.php" class="a-navbar">REGISTER</a>
                 </li>
