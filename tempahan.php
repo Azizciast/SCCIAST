@@ -133,7 +133,7 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
     <br><br>
-    <a href="list_tempahan.php" style="text-decoration: none;">Senarai Tempahan</a>
+   
     <?php require_once('inc/script.php'); ?>
 </body>
 

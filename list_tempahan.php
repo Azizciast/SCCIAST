@@ -38,7 +38,7 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
 
     <div class="container">
 
-        <table border="1" cellpadding="10" cellspacing="0">
+        <table class="table table-bordered border-primary">
             <tr>
                 <th>No.</th>
                 <th>Gelanggang</th>
@@ -64,7 +64,6 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
             <?php endforeach; ?>
         </table>
     </div>
-    <a href="tempahan.php" style="text-decoration: none;">Buat tempahan baru</a>
     <?php require_once('inc/script.php'); ?>
 </body>
 
