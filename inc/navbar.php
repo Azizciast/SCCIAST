@@ -12,19 +12,19 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../dashboard.php">Home</a>
+            <a class="nav-link active" aria-current="page" href="../scciast/dashboard.php">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../tempahan.php">Fasiliti</a>
+            <a class="nav-link active" aria-current="page" href="../scciast/tempahan.php">Fasiliti</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../list_tempahan.php">List booking</a>
+            <a class="nav-link active" aria-current="page" href="../scciast/list_tempahan.php">List booking</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../logout.php">Log out</a>
+            <a class="nav-link active" aria-current="page" href="../scciast/logout.php">Log out</a>
           </li>
       
       </div>
