@@ -12,11 +12,11 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Home</a>
+            <a class="nav-link active" aria-current="page" href="../admin/index.php">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Fasiliti</a>
+            <a class="nav-link active" aria-current="page" href="../admin/fasiliti.php">Fasiliti</a>
           </li>
 
           <li class="nav-item">
@@ -26,8 +26,8 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="logout.php">Log out</a>
           </li>
-      
       </div>
     </div>
   </div>
 </nav>
+<br><br><br>
