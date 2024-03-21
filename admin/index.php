@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
+    header("Location: localhost/scciast/login.php");
     exit;
 }
 
@@ -17,10 +17,16 @@ if (!isset($_SESSION["login"])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Homepage</title>
+        <?php require_once('inc/link.php');?>
     </head>
 
     <body>
+        
+        <?php require_once('inc/navbar.php');?>
 
+        <h1>hello</h1>
+    
+        <?php require_once('inc/script.php');?>
     </body>
 
     </html>

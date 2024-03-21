@@ -20,9 +20,11 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senarai tempahan</title>
+    <?php require_once('inc/link.php'); ?>
 </head>
 
 <body>
+    <?php require_once('inc/navbar.php'); ?>
 
     <h1>Senarai Tempahan</h1>
     <style>
@@ -63,6 +65,7 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
         </table>
     </div>
     <a href="tempahan.php" style="text-decoration: none;">Buat tempahan baru</a>
+    <?php require_once('inc/script.php'); ?>
 </body>
 
 </html>
