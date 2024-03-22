@@ -75,7 +75,7 @@ function tambah($data)
     return mysqli_affected_rows($conn);
 }
 
-function upload($pesanan)
+function upload($gambar)
 {
     global $conn;
     $namaFile = $_FILES['gambar']['name'];
@@ -104,7 +104,7 @@ function upload($pesanan)
 
     // cek jika ukurannya terlalu besar
     $max = 1000000;
-    if ($ukuranFile < $max) {
+    if ($ukuranFile > $max) {
         echo "<script>
                  alert('ukuran gambar terlalu besar!');
                 </script>";
@@ -113,7 +113,7 @@ function upload($pesanan)
 
     // berhasil pengecekan, gambar siap diupload
     // generate nama baru
-    $namaFileBaru = $pesanan . '.' . $ekstensiGambar;
+    $namaFileBaru = uniqid() . '.' . $ekstensiGambar;
     $imgDir = '../img/';
 
     // Check if the file with the same name already exists
@@ -123,7 +123,7 @@ function upload($pesanan)
         unlink($destination);
 
         // Empty gambar value in database
-        emptyGambar($conn, $pesanan);
+        emptyGambar($conn, $gambar);
     }
 
     // Simpan gambar $tmpName ke directory img/ with the new file name
@@ -138,10 +138,10 @@ function upload($pesanan)
 
 }
 
-function emptyGambar($conn, $pesanan)
+function emptyGambar($conn, $gambar)
 {
     // Query to update the gambar field to NULL or an empty value
-    $query = "UPDATE pelajar SET gambar = NULL WHERE nokp = '$pesanan'";
+    $query = "UPDATE fasiliti SET gambar = NULL WHERE gambar = '$gambar'";
 
     // Run query
     mysqli_query($conn, $query);

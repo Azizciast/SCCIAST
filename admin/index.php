@@ -24,7 +24,7 @@ $fasiliti = query("SELECT * FROM fasiliti");
         
         <?php require_once('inc/navbar.php');?>
 
-        <table border="1" cellpadding="10" cellspacing="0">
+        <table class="table table-bordered border-secondary">
 
 <tr>
     <th>No.</th>
@@ -49,8 +49,7 @@ $fasiliti = query("SELECT * FROM fasiliti");
         <td>
            
             <a href="delete.php?id=<?= $row['id'] ?>"
-                onclick="return confirm('Adakah anda yakin untuk memadam data');"><img
-                    width="25px" src="../img/delete.png"></a>
+                onclick="return confirm('Adakah anda yakin untuk memadam data');"><i class="bi bi-trash3-fill"></i></a>
         </td>
     </tr>
     <?php $i++; ?>

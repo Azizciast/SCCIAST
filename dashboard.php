@@ -1,12 +1,16 @@
 <?php 
 session_start();
 
-
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
 
+require_once("functions.php");
+
+$id = $_SESSION['id'];
+$result = query("SELECT * FROM users WHERE id = '$id'")[0];
+$name = $result['username'];
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +24,11 @@ if (!isset($_SESSION["login"])) {
 </head>
 
 <body>
+    
 <?php require_once('inc/navbar.php');?>
 </nav><br><br><br>
 
-    <h1>Hello User,Welcome To Website Us</h1>
-    
-
+    <h1>Hello <?= $name; ?>,Welcome To Website Us</h1>
 <?php require_once('inc/script.php');?>
 </body>
 </html>

@@ -41,6 +41,8 @@ if (isset($_POST["login"])) {
 
             // cek session
             $_SESSION["login"] = true;
+            $id = $row['id'];
+            $_SESSION["id"] = $id;
 
             // cek remember me
             if (isset($_POST['remember'])) {

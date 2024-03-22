@@ -67,7 +67,7 @@ $fasiliti = query("SELECT * FROM fasiliti");
                     </div>
                 </div>
                 <?php $i++; ?>
-            <?php endforeach; ?>
+            
             </div>
 
 
@@ -83,9 +83,8 @@ $fasiliti = query("SELECT * FROM fasiliti");
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" name="nama" id="nama" hidden>
-                            <input type="text" name="gelanggang" id="gelanggang" hidden>
                             <form action="" method="post">
+                            <input type="text" name="gelanggang" id="gelanggang" value="<?= $row['kategori'];?>" hidden>
                                 <ul>
                                     <li>
                                         <label for="tarikh">TARIKH :</label><br>
@@ -110,7 +109,7 @@ $fasiliti = query("SELECT * FROM fasiliti");
                 </div>
             </div>
             <br><br>
-
+            <?php endforeach; ?>
             <?php require_once('inc/script.php'); ?>
 </body>
 

@@ -38,7 +38,7 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
 
     <div class="container">
 
-        <table class="table table-bordered border-primary">
+        <table class="table table-bordered border-secondary">
             <tr>
                 <th>No.</th>
                 <th>Gelanggang</th>
@@ -57,7 +57,7 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
                     <td><?= $row["masa_mulai"]; ?></td>
                     <td><?= $row["masa_berakhir"]; ?></td>
                     <td>
-                        <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');" style="text-decoration: none;">batalkan tempahan</a>
+                        <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');" style="text-decoration: none;"><i class="bi bi-trash3-fill"></i></a>
                     </td>
                 </tr>
                 <?php $i++; ?>
