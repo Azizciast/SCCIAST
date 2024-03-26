@@ -11,6 +11,8 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
     $result = mysqli_query($conn, "SELECT username From users Where id = $id");
     $row = mysqli_fetch_assoc($result);
 
+    // ambil id berdasarkan 
+
     // cek cookie dan username
     if( $key === hash('sha256', $row['username']) ) {
         $_SESSION['login'] = true;

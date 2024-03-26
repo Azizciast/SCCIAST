@@ -8,7 +8,10 @@ if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
-
+$id = $_SESSION['id'];
+$result = query("SELECT * FROM users WHERE id = '$id'")[0];
+$name = $result['id'];
+$name2 = $result['username'];
 
 if (isset($_POST["submit"])) {
 
@@ -49,7 +52,7 @@ $fasiliti = query("SELECT * FROM fasiliti");
 
     <br>
     
-    <?php $i = 1; ?>
+    
     <?php foreach ($fasiliti as $row) : ?>
         <div class="row row-cols-3 row-cols-md-4 g-3">
             <div class="col">
@@ -62,18 +65,13 @@ $fasiliti = query("SELECT * FROM fasiliti");
                     <div class="card-footer">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Tempah Sekarang!!
+                             Tempah Sekarang!!
                         </button>
                     </div>
                 </div>
-                <?php $i++; ?>
-            
             </div>
-
-
-
-
-
+            
+            
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -84,21 +82,18 @@ $fasiliti = query("SELECT * FROM fasiliti");
                         </div>
                         <div class="modal-body">
                             <form action="" method="post">
-                            <input type="text" name="gelanggang" id="gelanggang" value="<?= $row['kategori'];?>" hidden>
+                            
                                 <ul>
                                     <li>
                                         <label for="tarikh">TARIKH :</label><br>
                                         <input type="date" name="tarikh" id="tarikh">
                                     </li>
-                                    <li>
-                                        <label for="mula">MASA MULAI :</label><br>
-                                        <input type="time" name="masa_mulai" id="mula">
-                                    </li>
-                                    <li>
-                                        <label for="akhir">MASA BERAKHIR :</label><br>
-                                        <input type="time" name="masa_berakhir" id="akhir">
-                                    </li>
                                 </ul>
+                                <input type="text" name="kategori" value="<?= $row['kategori'];?>" hidden>
+                                <input type="text" name="fasiliti_id" value="<?= $row['id'];?>" hidden>
+                                <input type="text" name="user_id" value="<?= $name;?>" hidden>
+                                <input type="text" name="username" value="<?= $name2;?>" hidden>
+                                <input type="text" name="status"  value="berjaya" hidden>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button class="btn btn-primary" type="submit" name="submit">Bookings now</button>

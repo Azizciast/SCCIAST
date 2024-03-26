@@ -6,11 +6,13 @@ if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
+$id = $_SESSION['id'];
+
 
 // koneksi ke database
 require 'functions.php';
 // ambil data dari table pelajar / query data pelajar
-$tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
+$tempahan = query("SELECT * FROM bookings WHERE user_id = '$id'");
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +45,7 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
                 <th>No.</th>
                 <th>Gelanggang</th>
                 <th>Tarikh</th>
-                <th>Masa mulai</th>
-                <th>Masa berakhir</th>
+                <th>Status</th>
                 <th>tetapan</th>
             </tr>
             <?php $i = 1; ?>
@@ -52,10 +53,9 @@ $tempahan = query("SELECT * FROM bookings ORDER BY id DESC");
 
                 <tr>
                     <td><?= $i; ?></td>
-                    <td><?= $row["gelanggang"]; ?></td>
+                    <td><?= $row["kategori"]; ?></td>
                     <td><?= $row["tarikh"]; ?></td>
-                    <td><?= $row["masa_mulai"]; ?></td>
-                    <td><?= $row["masa_berakhir"]; ?></td>
+                    <td><?= $row["status"]; ?></td>
                     <td>
                         <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');" style="text-decoration: none;"><i class="bi bi-trash3-fill"></i></a>
                     </td>

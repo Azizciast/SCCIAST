@@ -54,14 +54,17 @@ function tempah($data) {
     global $conn;
 
     // $nama = htmlspecialchars($data["nama"]);
-    $gelanggang = htmlspecialchars($data["gelanggang"]);
+    $fasiliti_id = ($data["fasiliti_id"]);
+    $kategori = ($data["kategori"]);
     $tarikh = ($data["tarikh"]);
-    $masa_mulai = ($data["masa_mulai"]);
-    $masa_berakhir =($data["masa_berakhir"]);
+    $user_id = ($data["user_id"]);
+    $username = ($data['username']);
+    $status = ($data["status"]);
+   
 
-    $query = "INSERT INTO bookings VALUES ('','', '$gelanggang', '$tarikh', '$masa_mulai', '$masa_berakhir')";
+    $query = "INSERT INTO bookings VALUES ('','$fasiliti_id', '$kategori', '$tarikh', '$user_id', '$username','$status')";
 
-    $result = mysqli_query($conn,"SELECT gelanggang,tarikh FROM bookings WHERE gelanggang = '$gelanggang' AND tarikh = '$tarikh'");
+    $result = mysqli_query($conn,"SELECT fasiliti_id,tarikh FROM bookings WHERE fasiliti_id = '$fasiliti_id' AND tarikh = '$tarikh'");
     
     if(mysqli_fetch_assoc($result) ) {
         echo "<script>
